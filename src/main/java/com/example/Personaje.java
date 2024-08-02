@@ -37,7 +37,7 @@ public abstract class Personaje {
     public double atacar(Personaje defensor) {
         Random random = new Random();
         int poderDisparo = destreza * fuerza * nivel;
-        int efectividadDisparo = random.nextInt(10) + 1;
+        int efectividadDisparo = random.nextInt(100) + 1;
         double valorAtaque = poderDisparo * (1 + efectividadDisparo / 100.0);
         int poderDefensa = defensor.getArmadura() * defensor.getVelocidad();
         double danio = calcularDanio(valorAtaque, efectividadDisparo, poderDefensa);
