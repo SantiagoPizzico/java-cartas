@@ -75,7 +75,7 @@ public class Juego {
             String apodo = APODOS.get(raza).get(random.nextInt(APODOS.get(raza).size()));
             int edad = random.nextInt(300);
 
-            Personaje personaje = PersonajeFactory.crearPersonaje(raza, velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, null, edad, null);
+            Personaje personaje = PersonajeFactory.crearPersonaje(raza, velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, edad);
             jugador.agregarPersonaje(personaje);
         }
     }
@@ -119,7 +119,7 @@ public class Juego {
             int armadura = solicitarEntero("Armadura", 1, 10);
             int edad = solicitarEntero("Edad", 0, 300);
 
-            Personaje personaje = PersonajeFactory.crearPersonaje(raza, velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, null, edad, null);
+            Personaje personaje = PersonajeFactory.crearPersonaje(raza, velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, edad);
             jugador.agregarPersonaje(personaje);
         }
     }
@@ -219,14 +219,14 @@ enum Raza {
 }
 
 class PersonajeFactory {
-    public static Personaje crearPersonaje(Raza raza, int velocidad, int destreza, int fuerza, int nivel, int armadura, String nombre, String apodo, Date fechaNacimiento, int edad, String imagen) {
+    public static Personaje crearPersonaje(Raza raza, int velocidad, int destreza, int fuerza, int nivel, int armadura, String nombre, String apodo, int edad) {
         switch (raza) {
             case HUMANO:
-                return new Humano(velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, fechaNacimiento, edad, imagen);
+                return new Humano(velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, edad);
             case ELFO:
-                return new Elfo(velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, fechaNacimiento, edad, imagen);
+                return new Elfo(velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, edad);
             case ORCO:
-                return new Orco(velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, fechaNacimiento, edad, imagen);
+                return new Orco(velocidad, destreza, fuerza, nivel, armadura, nombre, apodo, edad);
             default:
                 throw new IllegalArgumentException("Raza inválida: " + raza);
         }

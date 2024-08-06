@@ -73,13 +73,10 @@ public class Partida {
 
     private void determinarGanador() {
         Jugador ganador;
-        Jugador perdedor;
         if (jugador1.getPersonajes().isEmpty()) {
             ganador = jugador2;
-            perdedor = jugador1;
         } else {
             ganador = jugador1;
-            perdedor = jugador2;
         }
 
         String mensajeGanador = String.format("¡%s es el ganador del Trono de Hierro!", ganador.getNombre());

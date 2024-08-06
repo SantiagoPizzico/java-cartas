@@ -31,12 +31,4 @@ public class Jugador {
     public void limpiarPersonajes() {
         personajes.clear();
     }
-
-    @Override
-    public String toString() {
-        return "Jugador{" +
-                "nombre='" + nombre + '\'' +
-                ", personajes=" + personajes +
-                '}';
-    }
 }
